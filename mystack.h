@@ -1,7 +1,7 @@
 /*  ========== H03 - Personal Stack Implementation ============
  *
- *   Student: UPDATE
- *   Semester: UPDATE
+ *   Student: Jiawei Zhou
+ *   Semester: Summer 2023
  *
  * A simple stack implementation to hold int values.
  *
@@ -36,7 +36,6 @@ typedef struct stack
     node_t *head;          // head points to a node on the top of our stack.
 } neu_stack;
 
-
 /**  Creates a stack
 * Returns a pointer to a newly created stack.
 * The stack should be initialized with data on the heap.
@@ -45,13 +44,18 @@ typedef struct stack
 */
 neu_stack *create_stack(unsigned int capacity)
 {
-    // Modify the body of this function as needed.
+    neu_stack *myStack = (neu_stack *)malloc(sizeof(neu_stack));
+    if (myStack == NULL)
+    {
+        return NULL;
+    }
+    myStack->count = 0;
+    myStack->capacity = capacity;
+    myStack->head = NULL;
+    return myStack;
     neu_stack *myStack = NULL;
-    // TODO: Implement me!!
-
     return myStack;
 }
-
 
 /** Check if the stack is empty
 * Returns 1 if true (The stack is completely empty)
@@ -84,7 +88,7 @@ int stack_enqueue(neu_stack *s, int item)
 {
     // TODO: Implement me!
 
-    return NULL; 
+    return NULL;
 }
 
 /** Dequeue an item
@@ -100,9 +104,8 @@ int stack_dequeue(neu_stack *s)
 {
     // TODO: Implement me!
 
-    return NULL; 
+    return NULL;
 }
-
 
 /** returns the size of the stack. If the
  * stack hasn't been properly recreated, print to stderr, 
@@ -114,7 +117,6 @@ unsigned int stack_size(neu_stack *s)
 
     return NULL;
 }
-
 
 /** Removes a stack and ALL of its elements from memory.
  *  This should be called before any program terminates.
