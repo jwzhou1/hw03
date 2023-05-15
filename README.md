@@ -110,3 +110,13 @@ There is a ton of research directly relating reflection to performance in Comput
    * What areas do you need to work specifically related to coding?
 
 For this reflection, we encourage you to focus on challenges, study habits, and ways you can improve. 
+
+   Throughout this class, I learned how to code in C language which was a completely new programming language for me. This is a challenging programming language for me because its syntax and data types. However, through everyday practice, I gradually grasped the fundamentals of C programming.
+
+   One concept I learned so far that particularly got my attention was the introduction of pointers. I have never learned pointers in CS 5001 which is a class for coding in Python. Understanding pointers' definition and functionality was super hard for me. I realized pointers' immense utility in memory management and efficient programming so that I had to know how to use pointers. This new knowledge opened up a whole new perspective on programming for me.
+
+   The most enjoyable part of this class was the supportive and friendly environment created by professors, TAs, and classmates. They were always willing to help and answered my questions quickly. The usefulness of this class is huge, as it has given me a strong foundation in C programming, which I can apply directly to future projects and job interviews.
+
+   To further expand my skills, I plan to ask more questions with Professor Lionelle, TAs, and group teammates in MS Team. Additionally, I need to improve my study habits and I plan to watch canvas videos and code with videos simultaneously to better understand the concepts. Lastly, I aim to write more elegant codes instead of writing codes with many unnecessary lines.
+
+   Overall, this class has been a valuable learning experience, and I look forward to applying the data structure knowledge I have gained in this course to future projects. By consistently practicing and looking for help, I believe I can continue to improve my coding skills and become a better student.
