@@ -196,6 +196,42 @@ int unitTest7(int status)
     return passed;
 }
 
+// One test for stack_empty function to make sure the function works as expected.
+// Here we test an empty stack.
+int unitTest8(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = (neu_stack *)malloc(sizeof(neu_stack));
+    test_s->count = 0;
+    test_s->capacity = 10;
+    test_s->head = NULL;
+    if (stack_empty(test_s)) {
+        passed = 1;
+    }
+    free(test_s);
+    return passed;
+}
+
+// One test for stack_empty function to make sure the function works as expected.
+// Here we test an non-empty stack.
+int unitTest9(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = (neu_stack *)malloc(sizeof(neu_stack));
+    node_t *test_n = (node_t *)malloc(sizeof(node_t));
+    test_n->data = 10;
+    test_n->next = NULL;
+    test_s->count = 1;
+    test_s->capacity = 10;
+    test_s->head = test_n;
+    if (!stack_empty(test_s)) {
+        passed = 1;
+    }
+    free(test_n);
+    free(test_s);
+    return passed;
+}
+
 // TODO: Add more tests here
 // add your own, and uncomment the provided tests as
 // things are implemented
@@ -206,7 +242,9 @@ int (*unitTests[])(int) = {
     unitTest4,
     unitTest5,
     unitTest6,
-    unitTest7};
+    unitTest7,
+    unitTest8,
+    unitTest9};
 
 // ====================================================
 // ================== Program Entry ===================
