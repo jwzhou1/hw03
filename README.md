@@ -9,7 +9,7 @@ Link to Assignment on Github: (copy and paste the link to your assignment repo h
 
 How many hours did it take you to complete this assignment (estimate)? 
 
-   20 hours
+   25 hours
 
 Did you collaborate with any other students/TAs/Professors? If so, tell us who and in what capacity.  
 - one per row, add more if needed
@@ -24,6 +24,15 @@ Did you use any external resources (you do not have to cite in class material)? 
 
    For question 2:
    https://www.geeksforgeeks.org/applications-of-queue-data-structure/#
+
+   For question 3:
+   https://www.geeksforgeeks.org/implement-a-stack-using-singly-linked-list/  
+   https://www.simplilearn.com/tutorials/data-structure-tutorial/stack-implementation-using-array
+
+   For question 5:
+   https://www.geeksforgeeks.org/linked-list-vs-array/  
+   https://staffwww.fullcoll.edu/aclifton/cs241/lecture-dynamic-mem-linked-lists.html
+   https://towardsdatascience.com/linked-lists-vs-arrays-78746f983267
 
 
 (Optional) What was your favorite part of the assignment? 
@@ -67,7 +76,24 @@ Did you use any external resources (you do not have to cite in class material)? 
 
 5. Thinking about memory, what is the difference between an array and a linked list? What is the advantage of each?
 
+   Differences between an array and a linked list:
 
+   * Memory allocation: Arrays allocate memory at compile time, whereas linked lists allocate memory at runtime.
+
+   * Memory efficiency: Linked lists require additional memory for storing a reference to the next node along with the data, making them less memory-efficient than arrays for the same number of elements. However, the flexibility in size that linked lists offer may result in overall lower memory usage. This can be beneficial when dealing with data of uncertain or varying sizes.
+   In contrast, when using arrays, memory is allocated up to the upper limit of their size, even if not all of it is being used. This can be wasteful when dealing with small amounts of data. On the other hand, linked lists can incrementally increase their size as needed, which can result in more efficient memory usage.
+
+   Advantages of arrays:
+
+   * Memory allocation: Arrays allocate memory at compile time, which can be advantageous in the case where the size of the data structure is known and fixed. This allows for efficient memory allocation and direct access to elements based on their index.
+
+   * Memory efficiency: Arrays provide constant-time random access to elements, as each element's memory address can be calculated using its index. This makes arrays suitable for situations where frequent and immediate access to elements by index is needed.
+
+   Advantages of linked lists:
+
+   * Memory allocation: Linked lists offer flexibility in size, as memory for each node is allocated at runtime. This dynamic allocation enables efficient insertion and removal of elements at any position in the list, making linked lists suitable for the case where the size of the data structure may vary or is unknown in advance.
+
+   * Memory efficiency: Although linked lists require additional memory for storing the reference to the next node, they can use memory more efficiently than arrays when dealing with varying or uncertain data sizes. Linked lists allocate memory on-demand, which means only the necessary memory is used. This can result in lower overall memory usage, particularly in scenarios where the size of the data structure fluctuates significantly.
 
 ## Reflection
 
