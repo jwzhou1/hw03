@@ -124,7 +124,6 @@ int unitTest4(int status)
 int unitTest5(int status)
 {
     int passed = 0;
-
     neu_stack *test_s = create_stack(1);
     stack_enqueue(test_s, 1);
     if (1 == stack_full(test_s))
@@ -136,7 +135,6 @@ int unitTest5(int status)
         free_stack(test_s);
         return 0;
     }
-
     stack_dequeue(test_s);
     if (0 == stack_full(test_s))
     {
@@ -146,9 +144,7 @@ int unitTest5(int status)
     {
         passed = 0;
     }
-
     free_stack(test_s);
-
     return passed;
 }
 
@@ -159,7 +155,6 @@ int unitTest6(int status)
     int passed = 0;
     unsigned int cap1 = 10;
     neu_stack *test_s = create_stack(cap1);
-
     if (test_s != NULL && test_s->capacity == cap1 && test_s->count == 0 && test_s->head == NULL)
     {
         passed = 1;
@@ -170,7 +165,6 @@ int unitTest6(int status)
     }
 
     free_stack(test_s);
-
     return passed;
 }
 
@@ -181,7 +175,6 @@ int unitTest7(int status)
     int passed = 0;
     unsigned int cap1 = 5;
     neu_stack *test_s = create_stack(cap1);
-
     if (test_s != NULL && test_s->capacity == cap1 && test_s->count == 0 && test_s->head == NULL)
     {
         passed = 1;
@@ -190,9 +183,7 @@ int unitTest7(int status)
     {
         passed = 0;
     }
-
     free_stack(test_s);
-
     return passed;
 }
 
@@ -205,14 +196,15 @@ int unitTest8(int status)
     test_s->count = 0;
     test_s->capacity = 10;
     test_s->head = NULL;
-    if (stack_empty(test_s)) {
+    if (stack_empty(test_s))
+    {
         passed = 1;
     }
     free(test_s);
     return passed;
 }
 
-// One test for stack_empty function to make sure the function works as expected.
+// Another test for stack_empty function to make sure the function works as expected.
 // Here we test an non-empty stack.
 int unitTest9(int status)
 {
@@ -224,13 +216,51 @@ int unitTest9(int status)
     test_s->count = 1;
     test_s->capacity = 10;
     test_s->head = test_n;
-    if (!stack_empty(test_s)) {
+    if (!stack_empty(test_s))
+    {
         passed = 1;
     }
     free(test_n);
     free(test_s);
     return passed;
 }
+
+// One test for stack_full function to make sure the function works as expected.
+// Here we test a stack with count less than capacity.
+int unitTest10(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(12);
+    test_s->count = 6;
+    int test = stack_full(test_s);
+    if (test == 0)
+    {
+        passed = 1;
+    }
+    free(test_s);
+    return passed;
+}
+
+// Another test for stack_full function to make sure the function works as expected.
+// Here we test a stack with count equal to capacity.
+int unitTest11(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(8);
+    test_s->count = 8;
+    int test = stack_full(test_s);
+    if (test == 1)
+    {
+        passed = 1;
+    }
+    free_stack(test_s);
+    return passed;
+}
+
+
+
+
+
 
 // TODO: Add more tests here
 // add your own, and uncomment the provided tests as
@@ -244,7 +274,10 @@ int (*unitTests[])(int) = {
     unitTest6,
     unitTest7,
     unitTest8,
-    unitTest9};
+    unitTest9,
+    unitTest10,
+    unitTest11
+    };
 
 // ====================================================
 // ================== Program Entry ===================
