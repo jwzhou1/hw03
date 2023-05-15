@@ -257,23 +257,92 @@ int unitTest11(int status)
     return passed;
 }
 
-// // One test for stack_enqueue function to make sure the function works as expected.
-// // Here we enqueue to a full stack with capacity 8.
-// int unitTest12(int status)
+// One test for stack_enqueue function to make sure the function works as expected.
+// Here we enqueue item into an empty stack.
+int unitTest12(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    int item = 30;
+    int test = stack_enqueue(test_s, item);
+    if (test == 0 && test_s->count == 1 && test_s->head->data == item)
+    {
+        passed = 1;
+    }
+    else
+    {
+        free_stack(test_s);
+        passed = 0;
+    }
+    return passed;
+}
+
+// Another test for stack_enqueue function to make sure the function works as expected.
+// Here we enqueue one item into a MAX_DEPTH - 1 stack.
+int unitTest13(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    int item = 32;
+    for (int i = 0; i < MAX_DEPTH - 1; i++)
+    {
+        stack_enqueue(test_s, i);
+    }
+    int test = stack_enqueue(test_s, item);
+    if (test == 0 && test_s->count == MAX_DEPTH)
+    {
+        passed = 1;
+    }
+    else
+    {
+        free_stack(test_s);
+        passed = 0;
+    }
+    return passed;
+}
+
+// // One test for stack_size function to make sure the function works as expected.
+// int unitTest13(int status)
 // {
 //     int passed = 0;
-//     neu_stack *test_s = create_stack(2);
-//     int test = stack_enqueue(test_s, 50);
-//     if (test == 0)
+
+//     neu_stack myStack;
+//     myStack.count = 3;
+//     myStack.capacity = 10;
+//     myStack.head = (node_t*)malloc(sizeof(node_t));
+
+//     unsigned int size = stack_size(&myStack);
+//     if (size == 3)
 //     {
 //         passed = 1;
+
 //     }
-//     free_stack(test_s);
+//     else
+//     {
+//         passed = 0;
+//     }
+//     free(myStack.head);
 //     return passed;
 // }
 
+// // One test for free_stack function to make sure the function works as expected.
+// // Here we test a stack with capacity = 10.
+// int unitTest15(int status)
+// {
+//     int passed = 0;
+//     neu_stack *test_s = create_stack(10);
+//     free_stack(test_s);
+//     if (test_s == NULL)
+//     {
+//        passed = 1;
+//     }
+//     else
+//     {
+//         passed = 0;
+//     }
 
-
+//     return passed;
+// }
 
 // TODO: Add more tests here
 // add your own, and uncomment the provided tests as
@@ -290,8 +359,8 @@ int (*unitTests[])(int) = {
     unitTest9,
     unitTest10,
     unitTest11,
-    unitTest12
-    };
+    unitTest12,
+    unitTest13};
 
 // ====================================================
 // ================== Program Entry ===================
