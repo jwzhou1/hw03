@@ -301,29 +301,43 @@ int unitTest13(int status)
     return passed;
 }
 
-// // One test for stack_size function to make sure the function works as expected.
-// int unitTest13(int status)
-// {
-//     int passed = 0;
+// One test for stack_size function to make sure the function works as expected.
+// Here we test a stack is created with count 0.
+int unitTest16(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    unsigned int test = stack_size(test_s);
+    if (test == 0)
+    {
+        passed = 1;
+    }
+    else
+    {
+        free_stack(test_s);
+        passed = 0;
+    }
+    return passed;
+}
 
-//     neu_stack myStack;
-//     myStack.count = 3;
-//     myStack.capacity = 10;
-//     myStack.head = (node_t*)malloc(sizeof(node_t));
-
-//     unsigned int size = stack_size(&myStack);
-//     if (size == 3)
-//     {
-//         passed = 1;
-
-//     }
-//     else
-//     {
-//         passed = 0;
-//     }
-//     free(myStack.head);
-//     return passed;
-// }
+// Another test for stack_size function to make sure the function works as expected.
+// Here we enqueue 4 items into a stack and test stack size.
+int unitTest17(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    stack_enqueue(test_s, 1);
+    stack_enqueue(test_s, 2);
+    stack_enqueue(test_s, 3);
+    stack_enqueue(test_s, 4);
+    if (stack_size(test_s) == 4) {
+        passed = 1;
+    } else {
+        free_stack(test_s);
+        passed = 0;
+    }
+    return passed;
+}
 
 // // One test for free_stack function to make sure the function works as expected.
 // // Here we test a stack with capacity = 10.
@@ -360,7 +374,10 @@ int (*unitTests[])(int) = {
     unitTest10,
     unitTest11,
     unitTest12,
-    unitTest13};
+    unitTest13,
+    unitTest16,
+    unitTest17
+    };
 
 // ====================================================
 // ================== Program Entry ===================

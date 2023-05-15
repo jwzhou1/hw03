@@ -150,7 +150,6 @@ unsigned int stack_size(neu_stack *s)
         fputs("Stack has not been properly created.\n", stderr);
         return -1;
     }
-
     return s->count;
 }
 
