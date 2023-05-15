@@ -1,7 +1,7 @@
 /*  ========== H03 - Personal Queue Implementation ============
  *
- *   Student: UPDATE
- *   Semester: UPDATE
+ *   Student: Jiawei Zhou
+ *   Semester: Summer 2023
  *
  * A simple queue unit-tst implementation
  *
@@ -22,7 +22,7 @@ int unitTest1(int status)
 {
     int passed = 0;
 
-    stack_t *test_s = create_stack(MAX_DEPTH);
+    neu_stack *test_s = create_stack(MAX_DEPTH);
     if (MAX_DEPTH == test_s->capacity)
     {
         passed = 1;
@@ -38,7 +38,7 @@ int unitTest2(int status)
 {
     int passed = 0;
 
-    stack_t *test_s = create_stack(MAX_DEPTH);
+    neu_stack *test_s = create_stack(MAX_DEPTH);
     stack_enqueue(test_s, 1);
     stack_enqueue(test_s, 2);
     stack_enqueue(test_s, 3);
@@ -65,7 +65,7 @@ int unitTest3(int status)
 {
     int passed = 0;
 
-    stack_t *test_s = create_stack(MAX_DEPTH);
+    neu_stack *test_s = create_stack(MAX_DEPTH);
     int i = 0;
     for (i = 0; i < MAX_DEPTH; i++)
     {
@@ -91,7 +91,7 @@ int unitTest4(int status)
 {
     int passed = 0;
 
-    stack_t *test_s = create_stack(MAX_DEPTH);
+    neu_stack *test_s = create_stack(MAX_DEPTH);
     int i = 0;
     for (i = 0; i < MAX_DEPTH; i++)
     {
@@ -125,7 +125,7 @@ int unitTest5(int status)
 {
     int passed = 0;
 
-    stack_t *test_s = create_stack(1);
+    neu_stack *test_s = create_stack(1);
     stack_enqueue(test_s, 1);
     if (1 == stack_full(test_s))
     {

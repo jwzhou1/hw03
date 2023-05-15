@@ -45,15 +45,14 @@ typedef struct stack
 neu_stack *create_stack(unsigned int capacity)
 {
     neu_stack *myStack = (neu_stack *)malloc(sizeof(neu_stack));
-    if (myStack == NULL)
+
+    if (myStack != NULL)
     {
-        return NULL;
+        myStack->count = 0;
+        myStack->capacity = capacity;
+        myStack->head = NULL;
     }
-    myStack->count = 0;
-    myStack->capacity = capacity;
-    myStack->head = NULL;
-    return myStack;
-    neu_stack *myStack = NULL;
+
     return myStack;
 }
 
@@ -63,9 +62,14 @@ neu_stack *create_stack(unsigned int capacity)
 */
 int stack_empty(neu_stack *s)
 {
-    // TODO: Implement me!!
-
-    return NULL;
+    if (s->head == NULL || s->count == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 /** Check if the stack is full
@@ -74,9 +78,14 @@ int stack_empty(neu_stack *s)
 **/
 int stack_full(neu_stack *s)
 {
-    // TODO: Implement me!
-
-    return NULL;
+    if (s == NULL || s->count == s->capacity)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 /** Enqueue a new item
@@ -86,9 +95,26 @@ int stack_full(neu_stack *s)
 **/
 int stack_enqueue(neu_stack *s, int item)
 {
-    // TODO: Implement me!
+    if (s == NULL || stack_full(s))
+    {
+        return -1;
+    }
 
-    return NULL;
+    node_t *newIteam = (node_t *)malloc(sizeof(node_t));
+
+    if (newIteam != NULL)
+    {
+        newIteam->data = item;
+        newIteam->next = s->head;
+        s->head = newIteam;
+        s->count++;
+
+        return 0;
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 /** Dequeue an item
@@ -102,9 +128,17 @@ int stack_enqueue(neu_stack *s, int item)
 **/
 int stack_dequeue(neu_stack *s)
 {
-    // TODO: Implement me!
-
-    return NULL;
+    if (s == NULL || s->head == NULL)
+    {
+        fputs("no items to dequeue!\n", stderr);
+        return EXIT_FAILURE;
+    }
+    int item = s->head->data;
+    node_t *temp = s->head;
+    s->head = temp->next;
+    s->count--;
+    free(temp);
+    return item;
 }
 
 /** returns the size of the stack. If the
@@ -113,9 +147,13 @@ int stack_dequeue(neu_stack *s)
 */
 unsigned int stack_size(neu_stack *s)
 {
-    // TODO: Implement me!
+    if (s == NULL)
+    {
+        fputs("Stack has not been properly created.\n", stderr);
+        return -1;
+    }
 
-    return NULL;
+    return s->count;
 }
 
 /** Removes a stack and ALL of its elements from memory.
@@ -124,7 +162,18 @@ unsigned int stack_size(neu_stack *s)
  **/
 void free_stack(neu_stack *s)
 {
-    // TODO: Implement me!
+    if (s == NULL)
+    {
+        return;
+    }
+    node_t *current = s->head;
+    while (current != NULL)
+    {
+        node_t *next = current->next;
+        free(current);
+        current = next;
+    }
+    free(s);
 }
 
 #endif
