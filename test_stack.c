@@ -152,16 +152,61 @@ int unitTest5(int status)
     return passed;
 }
 
+// One test for create_stack function to make sure the function works as expected.
+// Here we make the capacity = 10.
+int unitTest6(int status)
+{
+    int passed = 0;
+    unsigned int cap1 = 10;
+    neu_stack *test_s = create_stack(cap1);
+
+    if (test_s != NULL && test_s->capacity == cap1 && test_s->count == 0 && test_s->head == NULL)
+    {
+        passed = 1;
+    }
+    else
+    {
+        passed = 0;
+    }
+
+    free_stack(test_s);
+
+    return passed;
+}
+
+// Another test for create_stack function to make sure the function works as expected.
+// Here we make the capacity = 5.
+int unitTest7(int status)
+{
+    int passed = 0;
+    unsigned int cap1 = 5;
+    neu_stack *test_s = create_stack(cap1);
+
+    if (test_s != NULL && test_s->capacity == cap1 && test_s->count == 0 && test_s->head == NULL)
+    {
+        passed = 1;
+    }
+    else
+    {
+        passed = 0;
+    }
+
+    free_stack(test_s);
+
+    return passed;
+}
+
 // TODO: Add more tests here
 // add your own, and uncomment the provided tests as
 // things are implemented
 int (*unitTests[])(int) = {
-//    unitTest1,
-//    unitTest2,
-//    unitTest3,
-//    unitTest4,
-//    unitTest5,
-    NULL};
+    unitTest1,
+    unitTest2,
+    unitTest3,
+    unitTest4,
+    unitTest5,
+    unitTest6,
+    unitTest7};
 
 // ====================================================
 // ================== Program Entry ===================

@@ -45,14 +45,12 @@ typedef struct stack
 neu_stack *create_stack(unsigned int capacity)
 {
     neu_stack *myStack = (neu_stack *)malloc(sizeof(neu_stack));
-
     if (myStack != NULL)
     {
         myStack->count = 0;
         myStack->capacity = capacity;
         myStack->head = NULL;
     }
-
     return myStack;
 }
 
