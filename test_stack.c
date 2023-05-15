@@ -257,7 +257,20 @@ int unitTest11(int status)
     return passed;
 }
 
-
+// // One test for stack_enqueue function to make sure the function works as expected.
+// // Here we enqueue to a full stack with capacity 8.
+// int unitTest12(int status)
+// {
+//     int passed = 0;
+//     neu_stack *test_s = create_stack(2);
+//     int test = stack_enqueue(test_s, 50);
+//     if (test == 0)
+//     {
+//         passed = 1;
+//     }
+//     free_stack(test_s);
+//     return passed;
+// }
 
 
 
@@ -276,7 +289,8 @@ int (*unitTests[])(int) = {
     unitTest8,
     unitTest9,
     unitTest10,
-    unitTest11
+    unitTest11,
+    unitTest12
     };
 
 // ====================================================
