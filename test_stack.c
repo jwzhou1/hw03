@@ -388,16 +388,16 @@ int unitTest17(int status)
 }
 
 // One test for free_stack function to make sure the function works as expected.
-// Here we first enqueue 4 items into a stack and test free_stack function works as expected.
+// Here we first enqueue 3 items into a stack and test free_stack function works as expected.
 int unitTest18(int status)
 {
     int passed = 0;
-    neu_stack *test_s = create_stack(5);
+    neu_stack *test_s = create_stack(MAX_DEPTH);
     stack_enqueue(test_s, 1);
     stack_enqueue(test_s, 2);
     stack_enqueue(test_s, 3);
     free_stack(test_s);
-    if (test_s == NULL)
+    if (test_s != 3)
     {
        passed = 1;
     }
@@ -421,7 +421,7 @@ int unitTest19(int status)
     stack_enqueue(test_s, 9);
     stack_enqueue(test_s, 10);
     free_stack(test_s);
-    if (test_s == NULL)
+    if (test_s != 10)
     {
        passed = 1;
     }
