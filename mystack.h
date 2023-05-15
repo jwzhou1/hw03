@@ -159,18 +159,17 @@ unsigned int stack_size(neu_stack *s)
  **/
 void free_stack(neu_stack *s)
 {
-    if (s == NULL)
+    if (s != NULL)
     {
-        return;
+        node_t *current = s->head;
+        while (current != NULL)
+        {
+            node_t *next = current->next;
+            free(current);
+            current = next;
+        }
+        free(s);
     }
-    node_t *current = s->head;
-    while (current != NULL)
-    {
-        node_t *next = current->next;
-        free(current);
-        current = next;
-    }
-    free(s);
 }
 
 #endif

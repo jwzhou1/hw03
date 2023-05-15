@@ -301,6 +301,54 @@ int unitTest13(int status)
     return passed;
 }
 
+// One test for stack_dequeue function to make sure the function works as expected.
+// Here we enqueue four elements into the stack and then dequeues one element using 
+// the stack_dequeue function. The test checks if the dequeued item is equal to 4 
+// and if the stack size is now 3.
+int unitTest14(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    stack_enqueue(test_s, 1);
+    stack_enqueue(test_s, 2);
+    stack_enqueue(test_s, 3);
+    stack_enqueue(test_s, 4);
+    int dequeued_item = stack_dequeue(test_s);
+    if (dequeued_item == 4 && stack_size(test_s) == 3)
+    {
+        passed = 1;
+    }
+    free_stack(test_s);
+
+    return passed;
+}
+
+// Another test for stack_dequeue function to make sure the function works as expected.
+// Here we enqueue 5 elements into the stack and then dequeues all 5 elements using 
+// the stack_dequeue function.
+int unitTest15(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    stack_enqueue(test_s, 1);
+    stack_enqueue(test_s, 2);
+    stack_enqueue(test_s, 3);
+    stack_enqueue(test_s, 4);
+    stack_enqueue(test_s, 5);
+    int i = 0;
+    for (i = 0; i < 6; i++)
+    {
+        stack_dequeue(test_s);
+    }
+     if (0 == stack_size(test_s))
+    {
+        passed = 1;
+    }
+    free_stack(test_s);
+
+    return passed;
+}
+
 // One test for stack_size function to make sure the function works as expected.
 // Here we test a stack is created with count 0.
 int unitTest16(int status)
@@ -339,24 +387,50 @@ int unitTest17(int status)
     return passed;
 }
 
-// // One test for free_stack function to make sure the function works as expected.
-// // Here we test a stack with capacity = 10.
-// int unitTest15(int status)
-// {
-//     int passed = 0;
-//     neu_stack *test_s = create_stack(10);
-//     free_stack(test_s);
-//     if (test_s == NULL)
-//     {
-//        passed = 1;
-//     }
-//     else
-//     {
-//         passed = 0;
-//     }
+// One test for free_stack function to make sure the function works as expected.
+// Here we first enqueue 4 items into a stack and test free_stack function works as expected.
+int unitTest18(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(5);
+    stack_enqueue(test_s, 1);
+    stack_enqueue(test_s, 2);
+    stack_enqueue(test_s, 3);
+    free_stack(test_s);
+    if (test_s == NULL)
+    {
+       passed = 1;
+    }
+    return passed;
+}
 
-//     return passed;
-// }
+// Another test for free_stack function to make sure the function works as expected.
+// Here we first enqueue 10 items into a stack and test free_stack function works as expected.
+int unitTest19(int status)
+{
+    int passed = 0;
+    neu_stack *test_s = create_stack(MAX_DEPTH);
+    stack_enqueue(test_s, 1);
+    stack_enqueue(test_s, 2);
+    stack_enqueue(test_s, 3);
+    stack_enqueue(test_s, 4);
+    stack_enqueue(test_s, 5);
+    stack_enqueue(test_s, 6);
+    stack_enqueue(test_s, 7);
+    stack_enqueue(test_s, 8);
+    stack_enqueue(test_s, 9);
+    stack_enqueue(test_s, 10);
+    free_stack(test_s);
+    if (test_s == NULL)
+    {
+       passed = 1;
+    }
+    else
+    {
+        passed = 0;
+    }
+    return passed;
+}
 
 // TODO: Add more tests here
 // add your own, and uncomment the provided tests as
@@ -375,8 +449,12 @@ int (*unitTests[])(int) = {
     unitTest11,
     unitTest12,
     unitTest13,
+    unitTest14,
+    unitTest15,
     unitTest16,
-    unitTest17
+    unitTest17,
+    unitTest18,
+    unitTest19
     };
 
 // ====================================================
